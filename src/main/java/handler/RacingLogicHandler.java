@@ -3,6 +3,7 @@ package handler;
 import collection.Cars;
 import util.NumberUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingLogicHandler {
@@ -43,8 +44,51 @@ public class RacingLogicHandler {
     public void moveAllCars() {
         int carSize = cars.getSize();
         List<Integer> randomNumList = NumberUtil.makeRandomNumberList(carSize, LOWER_BOUND, UPPER_BOUND);
-        for (int i = 0 ; i < cars.getSize(); i++) {
+        for (int i = 0; i < carSize; i++) {
             moveCarByRandomNum(randomNumList.get(i), cars.getCarNameByIndex(i));
         }
+    }
+
+    public List<String> startGame() {
+        for (int i = 0; i < racingCount; i++) {
+            moveAllCars();
+        }
+        return findWinner();
+    }
+
+    private List<String> findWinner() {
+        List<String> result = new ArrayList<>();
+        int maxIndex = Integer.MIN_VALUE;
+
+        for (int i = 0; i < cars.getSize(); i++) {
+            result = getWinners(result, maxIndex, cars.getCarNameByIndex(i), cars.getCarIndexByIndex(i));
+        }
+        return result;
+    }
+
+    private List<String> getWinners(List<String> result, int sourceIndex, String targetName, int targetIndex) {
+        if (sourceIndex == Integer.MIN_VALUE) {
+            result.add(targetName);
+            return result;
+        }
+        return compareAndGetWinner(result, sourceIndex, targetName, targetIndex);
+    }
+
+    private List<String> compareAndGetWinner(List<String> result, int sourceIndex, String targetName, int targetIndex) {
+        if (sourceIndex == targetIndex) {
+            result.add(targetName);
+            return result;
+        }
+        return returnBigger(result, sourceIndex, targetName, targetIndex);
+    }
+
+    private List<String> returnBigger(List<String> result, int sourceIndex, String targetName, int targetIndex) {
+        if (sourceIndex > targetIndex) {
+            return result;
+        }
+
+        ArrayList<String> newResult = new ArrayList<>();
+        newResult.add(targetName);
+        return newResult;
     }
 }

@@ -73,4 +73,8 @@ public class Cars {
     public String getCarNameByIndex(int index) {
         return carList.get(index).getName();
     }
+
+    public int getCarIndexByIndex(int index) {
+        return carList.get(index).getCurIndex();
+    }
 }
