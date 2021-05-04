@@ -63,7 +63,9 @@ public class RacingLogicHandler {
         int maxIndex = Integer.MIN_VALUE;
 
         for (int i = 0; i < cars.getSize(); i++) {
-            result = getWinners(result, maxIndex, cars.getCarNameByIndex(i), cars.getCarIndexByIndex(i));
+            int targetIndex = cars.getCarIndexByIndex(i);
+            result = getWinners(result, maxIndex, cars.getCarNameByIndex(i), targetIndex);
+            maxIndex = maxIndex < targetIndex ? targetIndex : maxIndex;
         }
         return result;
     }
