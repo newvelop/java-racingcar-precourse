@@ -47,6 +47,26 @@ public class Cars {
     }
 
     public int moveCar(String carName, int offSet) {
-        return 0;
+        Car car = findByCarName(carName);
+        car.setCurIndex(car.getCurIndex() + offSet);
+        return car.getCurIndex();
+    }
+
+    public Car findByCarName(String name) {
+        Car result = null;
+        for (Car car : carList) {
+            result = compareCarName(result, car, name);
+        }
+        return result;
+    }
+
+    private Car compareCarName(Car result, Car source, String target) {
+        if (result != null) {
+            return result;
+        }
+        if (source.getName().equals(target)) {
+            return source;
+        }
+        return null;
     }
 }
