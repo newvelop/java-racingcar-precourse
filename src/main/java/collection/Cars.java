@@ -26,7 +26,7 @@ public class Cars {
         if (name.length() > CAR_NAME_MAX_LENGTH) {
             return ErrorCode.CAR_NAME_LENGTH_OVER.getCode();
         }
-        return 0;
+        return SUCCESS;
     }
 
     private void addCarInList(String name) {
