@@ -15,6 +15,7 @@ public class NumberUtil {
 
     private static void addRandomNumber(List<Integer> randomNumList, int lowerBound, int upperBound) {
         Random random = new Random();
-        randomNumList.add(0);
+        int num = random.nextInt(upperBound - lowerBound) + lowerBound;
+        randomNumList.add(num);
     }
 }
