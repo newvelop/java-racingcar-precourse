@@ -54,6 +54,7 @@ public class CarsTest {
         int curIndex = 0;
         for (int i : randomNumberList) {
             curIndex = cars.moveCar(carName, i);
+            expectedValue += i;
         }
         assertThat(expectedValue).isEqualTo(curIndex);
     }
