@@ -71,6 +71,6 @@ public class Cars {
     }
 
     public Car getCarByIndex(int index) {
-        return null;
+        return carList.get(index);
     }
 }
