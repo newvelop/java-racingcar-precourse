@@ -18,7 +18,7 @@ public class RacingLogicHandler {
     }
 
     public int makeCarByInput(String input) {
-        String[] arr = input.split(",");
+        String[] arr = input.split("\\s*,\\s*");
         for (String s : arr) {
             cars.addCar(s);
         }
