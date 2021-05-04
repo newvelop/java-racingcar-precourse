@@ -46,7 +46,9 @@ public class RacingLogicHandler {
         List<Integer> randomNumList = NumberUtil.makeRandomNumberList(carSize, LOWER_BOUND, UPPER_BOUND);
         for (int i = 0; i < carSize; i++) {
             moveCarByRandomNum(randomNumList.get(i), cars.getCarNameByIndex(i));
+            UILogicHandler.printCarCurIndex(cars.getCarNameByIndex(i), cars.getCarIndexByIndex(i));
         }
+        UILogicHandler.printNewLine();
     }
 
     public List<String> startGame() {
