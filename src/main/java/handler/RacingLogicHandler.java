@@ -4,6 +4,7 @@ import collection.Cars;
 
 public class RacingLogicHandler {
     private final Cars cars;
+    private int racingCount;
 
     public RacingLogicHandler() {
         cars = new Cars();
@@ -15,5 +16,14 @@ public class RacingLogicHandler {
             cars.addCar(s);
         }
         return cars.getSize();
+    }
+
+    public boolean updateRacingCount(String countStr) {
+        try {
+            racingCount = Integer.parseInt(countStr);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 }
