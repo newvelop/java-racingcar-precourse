@@ -45,4 +45,8 @@ public class Cars {
         }
         return carList.size();
     }
+
+    public int moveCar(String carName, int offSet) {
+        return 0;
+    }
 }
