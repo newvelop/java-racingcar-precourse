@@ -69,4 +69,8 @@ public class Cars {
         }
         return null;
     }
+
+    public Car getCarByIndex(int index) {
+        return null;
+    }
 }

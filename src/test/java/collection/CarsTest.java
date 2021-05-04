@@ -1,6 +1,7 @@
 package collection;
 
 import converter.CsvToStringArray;
+import model.Car;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -44,5 +45,16 @@ public class CarsTest {
             expectedValue += i;
         }
         assertThat(expectedValue).isEqualTo(curIndex);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"car1, car2, car3"})
+    public void getCarByIndex(@ConvertWith(CsvToStringArray.class) String... arr) {
+        Cars cars = new Cars();
+        for (String s : arr) {
+            cars.addCar(s);
+        }
+        Car car = cars.getCarByIndex(1);
+        assertThat(car.getName()).isEqualTo("car2");
     }
 }
