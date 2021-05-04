@@ -54,7 +54,7 @@ public class CarsTest {
         for (String s : arr) {
             cars.addCar(s);
         }
-        Car car = cars.getCarByIndex(1);
-        assertThat(car.getName()).isEqualTo("car2");
+        String carName = cars.getCarNameByIndex(1);
+        assertThat(carName).isEqualTo("car2");
     }
 }

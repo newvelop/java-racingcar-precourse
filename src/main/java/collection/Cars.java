@@ -70,7 +70,7 @@ public class Cars {
         return null;
     }
 
-    public Car getCarByIndex(int index) {
-        return carList.get(index);
+    public String getCarNameByIndex(int index) {
+        return carList.get(index).getName();
     }
 }

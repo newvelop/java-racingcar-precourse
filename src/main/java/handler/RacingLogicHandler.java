@@ -4,6 +4,7 @@ import collection.Cars;
 
 public class RacingLogicHandler {
     private final Cars cars;
+    private final int MINIMUM_TO_MOVE = 4;
     private int racingCount;
 
     public RacingLogicHandler() {
@@ -25,5 +26,12 @@ public class RacingLogicHandler {
             return false;
         }
         return true;
+    }
+
+    public int moveCarByRandomNum(int randomNum, String carName) {
+        if (randomNum >= MINIMUM_TO_MOVE) {
+            return cars.moveCar(carName, 1);
+        }
+        return 0;
     }
 }
